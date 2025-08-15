@@ -19,7 +19,20 @@
             -moz-osx-font-smoothing: grayscale;
             transition: background-color 0.5s ease;
         }
-        /* Кастомні кольори гравців з фоном */
+        body::before {
+            content: '';
+            position: fixed;
+            bottom: -120px;
+            right: -120px;
+            width: 1024px;
+            height: 1024px;
+            background-image: url('https://raw.githubusercontent.com/BOICHlK/Suburbia/refs/heads/main/City.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            opacity: 0.2;
+            z-index: -1;
+            transition: opacity 0.5s ease;
+        }
         .theme-red { --theme-color: #E53E3E; --theme-color-light: #f58282; }
         .theme-yellow { --theme-color: #D69E2E; --theme-color-light: #e6b45e; }
         .theme-teal { --theme-color: #38B2AC; --theme-color-light: #68d2ce; }
@@ -276,7 +289,7 @@
                 const populationBeforeRep = state.population;
                 state.population = Math.max(0, state.population + state.reputation);
                 const sign = state.reputation > 0 ? '+' : '';
-                addToLog(`⭐ Reputation: ${sign}${state.reputation} �`, 'reputation');
+                addToLog(`⭐ Reputation: ${sign}${state.reputation} 👥`, 'reputation');
 
                 if (state.reputation < 0) {
                     const populationLost = populationBeforeRep - state.population;
